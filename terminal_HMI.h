@@ -115,7 +115,7 @@ int terminal_HMI::insert_menu()
 {
     printf("\n +------------- SCHNEIDER DEVICES MANAGER ------------------+\n");
     printf(" |                     Insertion Menu                       |\n");
-    printf(" | 1. Electrical meter                                      |\n");
+    printf(" | 1. Electric meter                                        |\n");
     printf(" | 2. Water meter                                           |\n");
     printf(" | 3. Gateway                                               |\n");
     printf(" | 4. (Back to Main Menu)                                   |\n");
@@ -187,7 +187,7 @@ int terminal_HMI::insert_meter_menu(int type_dev)
     cin.getline(inc_s,81);
     device.sn=atoi(inc_s);
     //Check SN value
-    while((device.sn < 1)|(device.sn > 9999999))
+    while((device.sn < 1)|(device.sn > 999999999))
     {
         //Read new SN for the device
         printf(" | Please, insert an acceptable SN (max lenght 9 digits) : ");
@@ -264,7 +264,7 @@ int terminal_HMI::insert_gateway_menu()
     cin.getline(inc_s,81);
     device.sn=atoi(inc_s);
     //Check SN value
-    while((device.sn < 1)|(device.sn > 9999999))
+    while((device.sn < 1)|(device.sn > 999999999))
     {
         //Read new SN for the device
         printf(" | Please, insert an acceptable SN (max lenght 9 digits) : ");
@@ -367,7 +367,7 @@ int terminal_HMI::list_menu()
 
     printf("\n +-------------- SCHNEIDER DEVICES MANAGER -----------------+\n");
     printf(" |                   Devices List Menu                      |\n");
-    printf(" | 1. Electricity meters                                    |\n");
+    printf(" | 1. Electric meters                                       |\n");
     printf(" | 2. Water meters                                          |\n");
     printf(" | 3. Gateway                                               |\n");
     printf(" | 4. (Back to Main Menu)                                   |\n");
@@ -450,7 +450,7 @@ int terminal_HMI::search_menu()
 
     printf("\n +------------ SCHNEIDER DEVICES MANAGER -------------------+\n");
     printf(" |                    Searching Menu                        |\n");
-    printf(" | 1. Electricity meters                                    |\n");
+    printf(" | 1. Electric meters                                       |\n");
     printf(" | 2. Water meters                                          |\n");
     printf(" | 3. Gateway                                               |\n");
     printf(" | 4. (Back to Main Menu)                                   |\n");
@@ -557,7 +557,7 @@ int terminal_HMI::search_meter_menu(int type_dev)
             device.sn = atoi(value);
 
             //Check SN value
-            while((device.sn < 1)|(device.sn > 9999999))
+            while((device.sn < 1)|(device.sn > 999999999))
             {
                 //Read new SN for the device
                 printf(" | Please, insert an acceptable SN (max lenght 9 digits) : ");
@@ -660,7 +660,7 @@ int terminal_HMI::search_gateway_menu()
             device.sn = atoi(value);
 
             //Check SN value
-            while((device.sn < 1)|(device.sn > 9999999))
+            while((device.sn < 1)|(device.sn > 999999999))
             {
                 //Read new SN for the device
                 printf(" | Please, insert an acceptable SN (max lenght 9 digits) : ");
