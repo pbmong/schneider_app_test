@@ -71,7 +71,7 @@ int terminal_HMI::main_menu()
 {
     int action = 0;
 
-    printf("\n +------------- SCHNEIDER DEVICES HANDLER ------------------+\n");
+    printf("\n +------------- SCHNEIDER DEVICES MANAGER ------------------+\n");
     printf(" |                       Main Menu                          |\n");
     printf(" | 1. Insert new device                                     |\n");
     printf(" | 2. Read devices table                                    |\n");
@@ -113,7 +113,7 @@ return int action: return the next action to perform in HMI.
 */
 int terminal_HMI::insert_menu()
 {
-    printf("\n +------------- SCHNEIDER DEVICES HANDLER ------------------+\n");
+    printf("\n +------------- SCHNEIDER DEVICES MANAGER ------------------+\n");
     printf(" |                     Insertion Menu                       |\n");
     printf(" | 1. Electrical meter                                      |\n");
     printf(" | 2. Water meter                                           |\n");
@@ -325,7 +325,7 @@ int terminal_HMI::list_menu()
 {
     int action = 0;
 
-    printf("\n +-------------- SCHNEIDER DEVICES HANDLER -----------------+\n");
+    printf("\n +-------------- SCHNEIDER DEVICES MANAGER -----------------+\n");
     printf(" |                   Devices List Menu                      |\n");
     printf(" | 1. Electricity meters                                    |\n");
     printf(" | 2. Water meters                                          |\n");
@@ -483,7 +483,7 @@ int terminal_HMI::search_meter_menu(int type_dev)
     else
         device.type = WATER_METER_DEVICE;
 
-    printf("\n +------------ SCHNEIDER DEVICES HANDLER -------------------+\n");
+    printf("\n +------------ SCHNEIDER DEVICES MANAGER -------------------+\n");
     printf(" |                 Meter Searching Menu                     |\n");
     printf(" | 1. SN                                                    |\n");
     printf(" | 2. Brand                                                 |\n");
@@ -585,7 +585,7 @@ int terminal_HMI::search_gateway_menu()
     gateway device;
     device.sn = 0;
 
-    printf("\n +------------ SCHNEIDER DEVICES HANDLER -------------------+\n");
+    printf("\n +------------ SCHNEIDER DEVICES MANAGER -------------------+\n");
     printf(" |                Gateway Searching Menu                    |\n");
     printf(" | 1. SN                                                    |\n");
     printf(" | 2. Brand                                                 |\n");
