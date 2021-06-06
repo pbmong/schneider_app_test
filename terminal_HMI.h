@@ -184,32 +184,52 @@ int terminal_HMI::insert_meter_menu(int type_dev)
 
     //Read SN of the device
     printf(" | Insert the SN of the device (max lenght 9 digits): ");
-    cin.getline(inc_s,9);
+    cin.getline(inc_s,81);
     device.sn=atoi(inc_s);
     //Check SN value
     while((device.sn < 1)|(device.sn > 9999999))
     {
         //Read new SN for the device
         printf(" | Please, insert an acceptable SN (max lenght 9 digits) : ");
-        cin.getline(inc_s,9);
+        cin.getline(inc_s,81);
         device.sn=atoi(inc_s);
     }
 
     //Read brand of the device
     printf(" | Insert the brand of the device (max lenght 15): ");
-    cin.getline(device.brand,15);
+    cin.getline(device.brand,81);
     //Check if brand is empty
     if(strlen(device.brand) == 0)
         //If were, complete with default value
         sprintf(device.brand,"unknown");
+    else if(strlen(device.brand) > 15)
+    {
+        //Read brand of the device
+        printf(" | Insert a valid brand for the device (max lenght 15): ");
+        cin.getline(device.brand,81);
+        //Check if brand is empty
+        if(strlen(device.brand) == 0)
+            //If were, complete with default value
+            sprintf(device.brand,"unknown");
+    }
 
     //Read model of the device
     printf(" | Insert the model of the device (max lenght 15): ");
-    cin.getline(device.model,15);
+    cin.getline(device.model,81);
     //Check if mode is empty
     if(strlen(device.model) == 0)
         //If were, complete with default value
         sprintf(device.model,"unknown");
+    else if(strlen(device.model) > 15)
+    {
+        //Read model of the device
+        printf(" | Insert a valid model for the device (max lenght 15): ");
+        cin.getline(device.model,81);
+        //Check if model is empty
+        if(strlen(device.model) == 0)
+            //If were, complete with default value
+            sprintf(device.model,"unknown");
+    }
 
     //Execute insertion query and check query result
     int resutl = insert_meter_list(HMI_conn, device);
@@ -241,55 +261,75 @@ int terminal_HMI::insert_gateway_menu()
 
     //Read SN of the device
     printf(" | Insert the SN of the device (max lenght 9): ");
-    cin.getline(inc_s,60);
+    cin.getline(inc_s,81);
     device.sn=atoi(inc_s);
     //Check SN value
     while((device.sn < 1)|(device.sn > 9999999))
     {
         //Read new SN for the device
         printf(" | Please, insert an acceptable SN (max lenght 9 digits) : ");
-        cin.getline(inc_s,60);
+        cin.getline(inc_s,81);
         device.sn=atoi(inc_s);
     }
 
     //Read brand of the device
     printf(" | Insert the brand of the device (max lenght 9): ");
-    cin.getline(device.brand,60);
+    cin.getline(device.brand,81);
     //Check if brand is empty
     if(strlen(device.brand) == 0)
         //If were, complete with default value
         sprintf(device.brand,"unknown");
+    else if(strlen(device.brand) > 15)
+    {
+        //Read brand of the device
+        printf(" | Insert a valid brand for the device (max lenght 15): ");
+        cin.getline(device.brand,81);
+        //Check if brand is empty
+        if(strlen(device.brand) == 0)
+            //If were, complete with default value
+            sprintf(device.brand,"unknown");
+    }
 
     //Read model of the device
     printf(" | Insert the model of the device (max lenght 9): ");
-    cin.getline(device.model,60);
+    cin.getline(device.model,81);
     //Check if model is empty
     if(strlen(device.model) == 0)
         //If were, complete with default value
         sprintf(device.model,"unknown");
+    else if(strlen(device.model) > 15)
+    {
+        //Read model of the device
+        printf(" | Insert a valid model for the device (max lenght 15): ");
+        cin.getline(device.model,81);
+        //Check if model is empty
+        if(strlen(device.model) == 0)
+            //If were, complete with default value
+            sprintf(device.model,"unknown");
+    }
 
     //Read IP of the device
     printf(" | Insert the IP of the device: ");
-    cin.getline(inc_s,60);
+    cin.getline(inc_s,81);
     //Verify that ip format is correct
     while(!(this->check_ip(inc_s)))
     {
         //Read new IP for the device
         printf(" | Insert a valid IP of the device: ");
-        cin.getline(inc_s,60);
+        cin.getline(inc_s,81);
     }
     strcpy(device.ip,inc_s);
 
     //Read Port of the device
     printf(" | Insert the PORT of the device (max lenght 4): ");
-    cin.getline(inc_s,5);
+    cin.getline(inc_s,81);
     device.port=atoi(inc_s);
     //Check Port value
     while((device.port < 1)|(device.port > 9999))
     {
         //Read new Port for the device
         printf(" | Please, insert an acceptable PORT (max lenght 4 digits) : ");
-        cin.getline(inc_s,5);
+        cin.getline(inc_s,81);
         device.port=atoi(inc_s);
     }
 
@@ -408,7 +448,7 @@ return int action: return the next action to perform in HMI.
 int terminal_HMI::search_menu()
 {
 
-    printf("\n +------------ SCHNEIDER DEVICES HANDLER -------------------+\n");
+    printf("\n +------------ SCHNEIDER DEVICES MANAGER -------------------+\n");
     printf(" |                    Searching Menu                        |\n");
     printf(" | 1. Electricity meters                                    |\n");
     printf(" | 2. Water meters                                          |\n");
@@ -616,7 +656,7 @@ int terminal_HMI::search_gateway_menu()
         case 1:
             //Read SN of the device
             printf(" | Insert the SN of the device (max lenght 9 digits): ");
-            cin.getline(value,9);
+            cin.getline(value,81);
             device.sn = atoi(value);
 
             //Check SN value
@@ -624,7 +664,7 @@ int terminal_HMI::search_gateway_menu()
             {
                 //Read new SN for the device
                 printf(" | Please, insert an acceptable SN (max lenght 9 digits) : ");
-                cin.getline(value,9);
+                cin.getline(value,81);
                 device.sn=atoi(value);
             }
 
@@ -634,7 +674,7 @@ int terminal_HMI::search_gateway_menu()
             break;
         case 2:
             printf(" | Insert the brand of the device (max lenght 15): ");
-            cin.getline(device.brand,15);
+            cin.getline(device.brand,81);
 
             //Check if brand is empty
             if(strlen(device.brand) == 0)
@@ -650,7 +690,7 @@ int terminal_HMI::search_gateway_menu()
             break;
         case 3:
             printf(" | Insert the model of the device (max lenght 15): ");
-            cin.getline(device.model,15);
+            cin.getline(device.model,81);
 
             //Check if brand is empty
             if(strlen(device.model) == 0)
@@ -664,14 +704,14 @@ int terminal_HMI::search_gateway_menu()
         case 4:
             //Read IP of the device
             printf(" | Insert the IP of the device: ");
-            cin.getline(value,60);
+            cin.getline(value,81);
 
             //Verify that IP format is correct
             while(!(this->check_ip(value)))
             {
                 //Read new IP of the device
                 printf(" | Insert a valid IP of the device: ");
-                cin.getline(value,60);
+                cin.getline(value,81);
             }
             strcpy(device.ip,value);
 
@@ -682,7 +722,7 @@ int terminal_HMI::search_gateway_menu()
         case 5:
             //Read Port of the device
             printf(" | Insert the Port of the device (max lenght 4): ");
-            cin.getline(value,5);
+            cin.getline(value,81);
             device.port=atoi(value);
 
             //Check Port value
@@ -690,7 +730,7 @@ int terminal_HMI::search_gateway_menu()
             {
                 //Read new Port for the device
                 printf(" | Please, insert an acceptable Port (max lenght 4 digits) : ");
-                cin.getline(value,5);
+                cin.getline(value,81);
                 device.port=atoi(value);
             }
 
